@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Button</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Fortune Button</h1>
+      <p class="description">
+        Press the button and receive a suspiciously wise fortune from the universe.
+      </p>
+
+      <div class="controls">
+        <button id="fortuneBtn" class="btn primary">Give me a fortune</button>
+        <button id="copyBtn" class="btn secondary">Copy fortune</button>
+      </div>
+
+      <section class="fortune-box" aria-live="polite">
+        <p id="fortuneText">Your fortune will appear here.</p>
+      </section>
+      <p id="copyStatus" class="copy-status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
