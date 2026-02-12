@@ -10,7 +10,7 @@
     <main class="container">
       <h1>Fortune Button</h1>
       <p class="description">
-        Press the button and receive a suspiciously wise fortune from the universe.
+        Press the button and receive a suspiciously wise meme-prophecy from the universe.
       </p>
 
       <div class="controls">
@@ -21,6 +21,19 @@
       <section class="fortune-box" aria-live="polite">
         <p id="fortuneText">Your fortune will appear here.</p>
       </section>
+
+      <section class="meme-box" aria-live="polite">
+        <p id="memeStatus" class="meme-status">Click for a fortune to load a bonus meme.</p>
+        <img
+          id="memeImage"
+          class="meme-image"
+          alt=""
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          hidden
+        />
+      </section>
+
       <p id="copyStatus" class="copy-status" role="status" aria-live="polite"></p>
     </main>
 
