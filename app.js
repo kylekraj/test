@@ -28,10 +28,27 @@ const fortunes = [
   "A tiny act of kindness from you will boomerang back quickly."
 ];
 
+const peacefulKeywords = [
+  "moonlight-city",
+  "rain-neon",
+  "quiet-cafe",
+  "stargazing",
+  "zen-garden",
+  "night-ocean",
+  "misty-mountains",
+  "sunrise-lake",
+  "city-skyline",
+  "floating-lanterns",
+  "japanese-garden",
+  "forest-trail"
+];
+
 const fortuneText = document.getElementById("fortuneText");
 const fortuneBtn = document.getElementById("fortuneBtn");
 const copyBtn = document.getElementById("copyBtn");
 const copyStatus = document.getElementById("copyStatus");
+const fortuneImage = document.getElementById("fortuneImage");
+const imageLabel = document.getElementById("imageLabel");
 
 let currentFortune = "";
 
@@ -40,9 +57,31 @@ function getRandomFortune() {
   return fortunes[randomIndex];
 }
 
+function keywordFromFortune(fortune) {
+  let hash = 0;
+
+  for (let i = 0; i < fortune.length; i += 1) {
+    hash = (hash << 5) - hash + fortune.charCodeAt(i);
+    hash |= 0;
+  }
+
+  const index = Math.abs(hash) % peacefulKeywords.length;
+  return peacefulKeywords[index];
+}
+
+function updatePeacefulImage(fortune) {
+  const keyword = keywordFromFortune(fortune);
+  const encodedKeyword = encodeURIComponent(keyword);
+
+  fortuneImage.src = `https://loremflickr.com/900/500/${encodedKeyword},peaceful,night?lock=${encodedKeyword}`;
+  fortuneImage.alt = `A peaceful ${keyword.replace(/-/g, " ")} scene inspired by your fortune`;
+  imageLabel.textContent = `Peaceful scene for your fortune: ${keyword.replace(/-/g, " ")}`;
+}
+
 fortuneBtn.addEventListener("click", () => {
   currentFortune = getRandomFortune();
   fortuneText.textContent = currentFortune;
+  updatePeacefulImage(currentFortune);
   copyStatus.textContent = "";
 });
 
