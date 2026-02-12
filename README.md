@@ -1,19 +1,21 @@
 # Fortune Button
 
-A tiny one-page website that delivers random funny fortunes with one click.
+A tiny one-page website that delivers random funny fortunes with one click, then pulls a meme from the internet that roughly matches that fortune's topic.
 
 ## Files
 
-- `index.html` – page structure and buttons
-- `style.css` – centered card layout and button styling
-- `app.js` – built-in fortune list, random selection logic, clipboard copy
+- `index.html` – page structure, fortune controls, and meme display area
+- `style.css` – neon-retro UI styling for the card, controls, and meme panel
+- `app.js` – fortune list, random selection logic, topic-to-subreddit meme fetch, clipboard copy
 
 ## Run locally
 
 1. Download or clone this repository.
 2. Open `index.html` in any modern web browser.
-3. Click **Give me a fortune** to generate a random fortune.
+3. Click **Give me a fortune** to generate a random fortune and load a themed meme.
 4. Click **Copy fortune** to copy the current fortune to your clipboard.
+
+> Note: meme loading requires internet access because it uses `https://meme-api.com/gimme/<subreddit>`.
 
 ## Publish with GitHub Pages
 
